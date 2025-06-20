@@ -1,6 +1,6 @@
 {
   "name": "programming-project-tracker-go-library",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Reference implementation library for the Programming Project Tracker.",
   "scripts": {
     "postinstall": "lefthook install",
