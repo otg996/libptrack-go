@@ -1,0 +1,3 @@
+[submodule "spec"]
+	path = spec
+	url = git@github.com:otg996/programming-project-tracker-spec.git

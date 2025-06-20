@@ -1,0 +1,16 @@
+pre-commit:
+  jobs:
+    - name: Go lint
+      run: golangci-lint run
+
+    - name: Go tests
+      run: go test -race -vet=off -v
+
+    - name: Markdown lint
+      glob: "*.md"
+      run: markdownlint-cli2 {staged_files} --fix
+
+commit-msg:
+  jobs:
+    - name: commitlint
+      run: pnpm exec commitlint --edit "{1}"

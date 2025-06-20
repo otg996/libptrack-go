@@ -1,0 +1,25 @@
+{
+  "name": "programming-project-tracker-go-library",
+  "version": "0.0.0",
+  "description": "Reference implementation library for the Programming Project Tracker.",
+  "scripts": {
+    "postinstall": "lefthook install",
+    "commit": "cz"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "commitizen": "^4.3.1",
+    "cz-git": "^1.11.2",
+    "lefthook": "^1.11.14",
+    "markdownlint-cli2": "^0.18.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-git"
+    }
+  }
+}

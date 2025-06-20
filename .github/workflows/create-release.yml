@@ -1,0 +1,32 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    name: Create GitHub Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Get release notes from CHANGELOG
+        id: get_release_notes
+        run: |
+          TAG=${GITHUB_REF#refs/tags/}
+          # Find tag line and print until the next ## or end of file.
+          NOTES=$(awk "/^## \\[${TAG#v}\\]/{flag=1; next} /^## \\[/{flag=0} flag" CHANGELOG.md)
+          # Make the notes available to subsequent steps
+          echo "notes<<EOF" >> $GITHUB_OUTPUT
+          echo "$NOTES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          body: ${{ steps.get_release_notes.outputs.notes }}

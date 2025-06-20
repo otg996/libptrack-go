@@ -1,0 +1,16 @@
+{
+  // Default all rules to true
+  "default": true,
+  // Disable the multiple consecutive blank lines rule
+  "MD012": false,
+  // Disable the line-length rule
+  "MD013": false,
+  // Change unordered list indent to 4 spaces
+  "MD007": { "indent": 4 },
+  // Allow punctuation in headers
+  "MD026": { "punctuation": ".,;:!?" },
+  // Disable heading increment rule
+  "MD001": false,
+  // Disable duplicate heading rule
+  "MD024": false
+}
